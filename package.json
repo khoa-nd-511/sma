@@ -1,0 +1,15 @@
+{
+  "name": "vanilla-js-app",
+  "version": "1.0.0",
+  "description": "managing staff",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "Khoa Nguyen",
+  "license": "ISC",
+  "homepage": "https://erickhoamonger.github.io/sma",
+  "dependencies": {
+    "gh-pages": "^2.0.0"
+  }
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Staff Managing App</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Quicksand:300,400,500,700&amp;subset=vietnamese" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="video-fullscreen">
+            <video src="img/Time Lapse Video  Of Sunrise.mp4" type="video/mp4" autoplay muted loop id="myVideo"></video>
+        </div>
+        <div class="container">
+            <h1 class="display-3">Staffs Managing App</h1>
+            <p class="lead">Vanilla Javascript Project</p>
+            <hr class="my-2">
+            <p>Khoa Nguyen</p>
+            <p>June 25
+                <sup>th</sup> 2018</p>
+            <p>1.0.0</p>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+        <a class="navbar-brand" href="#">SMA</a>
+        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navMenuCollapse" aria-controls="navMenuCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenuCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid app-area">
+        <div class="row align-items-center py-3">
+            <div class="nav-aside-toggle-btn mr-auto" data-toggle="tooltip" title="Want To Add A New Staff?">
+                <i class="fa fa-plus"></i>
+            </div>
+            <div class="searchField col-3">
+                <div class="input-group input-group-sm">
+                    
+                    <input type="text" class="form-control" id="inputSearch" placeholder="Enter name or ID to search">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" >
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 inputForm">
+                <aside class="nav-sidebar">
+                    <ul>
+                        <li>
+                            <div id="input-group">
+                                <input class="input-field" required id="txtName">
+                                <label class="input-label">Enter Name</label>
+                                <br>
+                                <span class="spanError" id="error-name">asd</span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div id="input-group">
+                                <input class="input-field" required id="txtIdNumber">
+                                <label class="input-label">Enter ID Number</label>
+                                <br>
+                                <span class="spanError" id="error-id">asd</span>
+                            </div>
+                        </li>
+
+                        <li class="select">
+                            <select id="staffPosition" class="form-control">
+                                <option>Choose Position</option>
+                                <option>Director</option>
+                                <option>Manager</option>
+                                <option>Staff</option>
+                            </select>
+                            <span class="spanError" id="error-position">asd</span>
+                        </li>
+
+                        <li>
+                            <div id="input-group">
+                                <input class="input-field" required id="txtEmail">
+                                <label class="input-label">Enter Email</label>
+                                <br>
+                                <span class="spanError" id="error-email">asd</span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div id="input-group">
+                                <input class="input-field" required id="txtPhone">
+                                <label class="input-label">Enter Phone Number</label>
+                                <br>
+                                <span class="spanError" id="error-phone">asd</span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div id="input-group">
+                                <input type="date" class="input-field form-control" required id="txtDOB">
+                                <span class="spanError" id="error-dob">asd</span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div id="input-group">
+                                <input class="input-field" required id="txtSalary">
+                                <label class="input-label">Enter Salary per Day</label>
+                                <br>
+                                <span class="spanError" id="error-salary">asd</span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div id="input-group">
+                                <input class="input-field" required id="txtWorkingDays">
+                                <label class="input-label">Enter Number of Working Day</label>
+                                <br>
+                                <span class="spanError" id="error-day">asd</span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div id="input-group">
+                                <input class="input-field" required id="txtBonus">
+                                <label class="input-label">Enter Bonus</label>
+                                <br>
+                                <span class="spanError" id="error-bonus">asd</span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <button class="btn btn-dark d-block mt-3 text-light" id="btnAdd">Add Staff</button>
+                        </li>
+                    </ul>
+
+                </aside>
+            </div>
+            <div class="col-lg-12 mx-auto" id="tableStuff">
+                <table class="table table-hover table-dark" id="tableOutput">
+                    <thead>
+                        <tr>
+                            <th>Name <i class="fa fa-sort-alpha-asc" id="nameSort"></i></th>
+                            <th>ID Number <i class="fa fa-sort" id="idSort"></i></th>
+                            <th>Position</th>
+                            <th>Email</th>
+                            <th>Working day</th>
+                            <th>Salary <i class="fa fa-sort" id="salarySort"></i></th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- The Update Modal -->
+    <div class="modal fade" id="updateModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Update Staff's Information</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Name</span>
+                        </div>
+                        <input type="text" class="form-control" id="name-update">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">ID Number</span>
+                        </div>
+                        <input type="text" class="form-control" id="id-update" readonly>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Position</span>
+                        </div>
+                        <select name="" id="position-update">
+                            <option>Director</option>
+                            <option>Manager</option>
+                            <option>Staff</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Email</span>
+                        </div>
+                        <input type="text" class="form-control" id="email-update">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Phone</span>
+                        </div>
+                        <input type="text" class="form-control" id="phone-update">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Date of Birth</span>
+                        </div>
+                        <input type="date" class="form-control" id="dob-update">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Salary</span>
+                        </div>
+                        <input type="text" class="form-control" id="salary-update">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Working Days</span>
+                        </div>
+                        <input type="text" class="form-control" id="day-update">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Bonus</span>
+                        </div>
+                        <input type="text" class="form-control" id="bonus-update">
+                    </div>
+                    <button class="btn btn-dark d-block mt-3 mx-auto close" data-dismiss="modal" id="btnUpdate">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Staff.js"></script>
+    <script src="js/StaffList.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+
+</body>
+
+</html>
